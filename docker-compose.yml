@@ -1,0 +1,13 @@
+services:
+  ztp-proxy:
+    build: .
+    restart: unless-stopped
+    image: ztp-flask-local:1.0
+    
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ztp-flask.sh:/app/scripts/ztp-flask.sh:ro
+      - ./images:/app/images:ro
+      - ./configs:/app/configs:ro
+      - ./logs:/app/logs

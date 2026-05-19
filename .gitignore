@@ -1,0 +1,8 @@
+logs/*
+images/*
+.env
+*.pyc
+.venv/*
+.cursor/*
+configs/*
+*.bin

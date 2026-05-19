@@ -1,2 +1,2 @@
 # ztp-flask-offline
-A offline ztp flask image for Cumulus
+An offline ztp flask image for Cumulus

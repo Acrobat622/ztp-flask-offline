@@ -85,6 +85,8 @@ fi
 # Restart FRR and switchd services after applying the configuration
 sleep 120
 
+nv set system aaa user cumulus hashed-password '$6$Y8fo7kDqMkFzIa7z$NsaQiO/f3NqrCBehSWE2ZUsKbPHhFxHvdDZUcZ34XhTs/TAJ4IjoCvdPRv8qQ9H2SLwDtPFETMxr9hDfJJ867.'
+            
 nv config save 2>&1
 rm -f "$TEMP_CONFIG"
 log_info "ZTP provisioning completed successfully"

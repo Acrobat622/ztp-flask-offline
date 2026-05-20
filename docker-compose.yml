@@ -2,7 +2,7 @@ services:
   ztp-proxy:
     build: .
     restart: unless-stopped
-    image: ztp-flask-local:1.0
+    image: ztp-flask-local:1.1
     
     ports:
       - "8080:8080"

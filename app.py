@@ -114,6 +114,8 @@ def ztp_nvue_config(serial: str) -> Response | tuple[Any, int]:
     if not serial:
         return jsonify({"error": "missing_serial", "detail": "Path segment serial is required"}), 400
 
+    hostip = request.remote_addr or "unknown"
+
     hostname = _lookup_hostname(serial)
     if not hostname:
         LOG.warning("No hostname mapped for serial=%s", serial)
@@ -124,7 +126,7 @@ def ztp_nvue_config(serial: str) -> Response | tuple[Any, int]:
     for ext, mimetype in ((".json", "application/json"), (".yaml", "text/yaml")):
         filepath = os.path.join(CONFIGS_DIR, f"{hostname}{ext}")
         if os.path.isfile(filepath):
-            LOG.info("Serving config file: %s", filepath)
+            LOG.info("Serving config file: %s to %s at %s", filepath, serial, hostip)
             return send_file(filepath, mimetype=mimetype)
 
     LOG.warning("No config file found for hostname=%s (serial=%s)", hostname, serial)

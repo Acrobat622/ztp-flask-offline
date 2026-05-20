@@ -65,6 +65,7 @@ fi
 
 log_info "Configuration file size: $(wc -c < "$TEMP_CONFIG") bytes"
 
+
 log_info "Applying NVUE configuration"
 if nv config replace "$TEMP_CONFIG" 2>&1; then
     log_info "Configuration replaced successfully"
@@ -72,6 +73,8 @@ else
     log_error "Failed to replace configuration"
     exit 1
 fi
+
+nv set system aaa user cumulus hashed-password '$6$Y8fo7kDqMkFzIa7z$NsaQiO/f3NqrCBehSWE2ZUsKbPHhFxHvdDZUcZ34XhTs/TAJ4IjoCvdPRv8qQ9H2SLwDtPFETMxr9hDfJJ867.'
 
 
 log_info "Applying all NVUE configuration changes"
@@ -85,8 +88,7 @@ fi
 # Restart FRR and switchd services after applying the configuration
 sleep 120
 
-nv set system aaa user cumulus hashed-password '$6$Y8fo7kDqMkFzIa7z$NsaQiO/f3NqrCBehSWE2ZUsKbPHhFxHvdDZUcZ34XhTs/TAJ4IjoCvdPRv8qQ9H2SLwDtPFETMxr9hDfJJ867.'
-            
+          
 nv config save 2>&1
 rm -f "$TEMP_CONFIG"
 log_info "ZTP provisioning completed successfully"

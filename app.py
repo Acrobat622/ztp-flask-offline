@@ -84,7 +84,9 @@ def serve_image(filename: str) -> Response | tuple[Any, int]:
     if not os.path.isfile(filepath):
         LOG.warning("Image file not found: %s", safe)
         return jsonify({"error": "image_not_found", "filename": safe}), 404
-    LOG.info("Serving image file: %s", safe)
+    
+    hostip = request.remote_addr or "unknown"
+    LOG.info("Serving image file: %s to %s", safe, hostip)
     return send_file(filepath, mimetype="application/octet-stream")
 
 

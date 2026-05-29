@@ -7,7 +7,7 @@ ZTP_FLASK_BASE_URL="http://10.130.18.62:8080"
 # Optional shared secret; must match ZTP_PROXY_API_KEY on the Flask container if set.
 ZTP_PROXY_API_KEY=""
 # Target Cumulus Linux release; devices not running this version will be re-imaged.
-CUMULUS_TARGET_RELEASE="5.11.5"
+CUMULUS_TARGET_RELEASE="5.16.1"
 IMAGE_URL="${ZTP_FLASK_BASE_URL}/images/cumulus-linux-${CUMULUS_TARGET_RELEASE}-mlx-amd64.bin"
 ZTP_SCRIPT_URL="${ZTP_FLASK_BASE_URL}/ztp/script"
 

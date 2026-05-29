@@ -14,9 +14,9 @@ from typing import Any
 
 from flask import Flask, Response, jsonify, request, send_file
 
-ZTP_SCRIPT_PATH = os.environ.get("ZTP_SCRIPT_PATH", "/app/scripts/ztp-flask.sh")
+ZTP_SCRIPT_PATH = os.environ.get("ZTP_SCRIPT_PATH", "/app/scripts/cumulus-ztp-flask.sh")
 IMAGES_DIR = os.environ.get("ZTP_IMAGES_DIR", "/app/images")
-CONFIGS_DIR = os.environ.get("ZTP_CONFIGS_DIR", "/app/configs")
+CONFIGS_DIR = os.environ.get("ZTP_CONFIGS_DIR", "/app/configs/cumulus")
 MAPPING_CSV = os.path.join(CONFIGS_DIR, "mapping.csv")
 LOG_DIR = os.environ.get("ZTP_LOG_DIR", "/app/logs")
 LOG_FILE = os.path.join(LOG_DIR, "ztp-proxy.log")

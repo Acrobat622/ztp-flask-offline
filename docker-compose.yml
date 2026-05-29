@@ -1,5 +1,5 @@
 services:
-  ztp-proxy:
+  ztp-local:
     build: .
     restart: unless-stopped
     image: ztp-flask-local:1.1
@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./ztp-flask.sh:/app/scripts/ztp-flask.sh:ro
+      - ./scripts/cumulus-ztp-flask.sh:/app/scripts/cumulus-ztp-flask.sh:ro
       - ./images:/app/images:ro
       - ./configs:/app/configs:ro
       - ./logs:/app/logs
